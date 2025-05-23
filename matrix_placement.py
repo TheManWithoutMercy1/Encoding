@@ -166,6 +166,11 @@ def add_timing_patterns(matrix,version):
 
     print("with timing patterns")
     color_matrix(matrix)
+    img = create_qr_image(matrix)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    save_path = os.path.join(script_dir, "qr_with_timing_patterns.png")
+    img.save(save_path)
+    print(f"Image saved to: {save_path}")
     reserve_format_information(matrix,version)
 
 
@@ -207,6 +212,11 @@ def reserve_format_information(matrix,version):
 
     print("with reserved format info")
     color_matrix(matrix)
+    img = create_qr_image(matrix)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    save_path = os.path.join(script_dir, "qr_with_reserve_info.png")
+    img.save(save_path)
+    print(f"Image saved to: {save_path}")
    
 
 def add_alignment_patterns(matrix,version):
@@ -228,6 +238,11 @@ def draw_alignment_pattern(matrix, row, col,version):
 
     print("with alignment patterns:")
     color_matrix(matrix)
+    img = create_qr_image(matrix)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    save_path = os.path.join(script_dir, "qr_with_alignment_pattern.png")
+    img.save(save_path)
+    print(f"Image saved to: {save_path}")
     add_timing_patterns(matrix,version)
 
 
@@ -277,6 +292,12 @@ def place_data_bits_v1(matrix, bitstream):
     # Print matrix and the captured coordinates of the placed data bits
     print("after data bits")
     print(matrix)
+    color_matrix(matrix)
+    img = create_qr_image(matrix)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    save_path = os.path.join(script_dir, "qr_with_data_bits_v1.png")
+    img.save(save_path)
+    print(f"Image saved to: {save_path}")
     return matrix, data_bit_positions
        
 def place_data_bits_v2(matrix, bitstream):
@@ -390,6 +411,11 @@ def place_data_bits_v2(matrix, bitstream):
      
     print("after data bits")
     color_matrix(matrix)
+    img = create_qr_image(matrix)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    save_path = os.path.join(script_dir, "qr_with_data_bits_v1.png")
+    img.save(save_path)
+    print(f"Image saved to: {save_path}")
     return matrix, data_bit_positions
 
 
@@ -652,4 +678,9 @@ def format_info(matrix,version,best_mask):
 
     print("after placing format bits")
     color_matrix(matrix)
+    img = create_qr_image(matrix)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    save_path = os.path.join(script_dir, "qr_with_format_bits.png")
+    img.save(save_path)
+    print(f"Image saved to: {save_path}")
     return matrix

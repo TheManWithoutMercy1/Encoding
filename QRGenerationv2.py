@@ -173,15 +173,15 @@ class QR_Generation:
         lowest_penalty = min(penalties)
         best_mask = penalties.index(lowest_penalty)
         print("the lowest penalty of all these is: ", lowest_penalty, "using mask:", best_mask)
-
         matrix3 = mask_functions[best_mask](matrix2, data_bit_positions)
         matrix4 = format_info(matrix3,self.version,best_mask)
-        img = create_qr_image(matrix4)
-        downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
-        img_path = (os.path.join(downloads_path, "qrv2test.png"))
-        img.save(img_path)
-        img.show()  # Show the image for verification
-        return img_path
+        return matrix4
+        #img = create_qr_image(matrix4)
+        #downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
+        #img_path = (os.path.join(downloads_path, "qrv2test.png"))
+        #img.save(img_path)
+        #img.show()  # Show the image for verification
+        #return img_path
     
 #string = input("what string do you want to put?")
 #qr_gen = QR_Generation(string)
