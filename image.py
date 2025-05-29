@@ -70,18 +70,16 @@ def create_qr_image2(matrix, module_size=10, quiet_zone=8, color=(0, 0, 0)):
             for dy in range(module_size):
                 for dx in range(module_size):
                     img.putpixel((top_left_x + dx, top_left_y + dy), fill_color)
-
-    # Create circular mask
+                    
     mask = Image.new('L', (total_size, total_size), 0)
     draw_mask = ImageDraw.Draw(mask)
     center = total_size // 2
     radius = total_size // 2 - module_size
     draw_mask.ellipse((center - radius, center - radius, center + radius, center + radius), fill=255)
 
-    # Apply mask to alpha channel
+   
     img.putalpha(mask)
 
-    # Draw white circle and black outline on RGBA image
     draw = ImageDraw.Draw(img)
     draw.ellipse(
         (center - radius, center - radius, center + radius, center + radius),
